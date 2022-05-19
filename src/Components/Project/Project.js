@@ -14,7 +14,13 @@ function App() {
     }
 
     setTodos([...todos].concat(newTodo))
-    setTodo('')
+    setTodo("")
+  }
+
+  function deleteTodo(id){
+    const updatedTodos = [ ... todos].filter((todo) => todo.id !== id)
+
+    setTodos(updatedTodos)
   }
 
   return (
@@ -23,7 +29,10 @@ function App() {
         <input type="text" onChange={(e) => setTodo(e.target.value)} value={todo} />
         <button type="submit">Add item</button>
       </form>
-      {todos.map((todo) => <div key={todo.id}>{todo.text}</div>)}
+      {todos.map((todo) => <div key={todo.id}>
+        <div>{todo.text}</div>
+        <button onClick = {() => deleteTodo(todo.id)}>Delete item</button>
+        </div>)}
     </div>
   );
 }
