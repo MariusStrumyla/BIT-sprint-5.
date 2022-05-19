@@ -51,7 +51,7 @@ function Project(){
 
   return (
     <div className="TodoApp">
-      <h1>To do list</h1>
+      <h1>Todo app</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" onChange={(e) => setTodo(e.target.value)} value={todo} />
         <button type="submit">Add item</button>
